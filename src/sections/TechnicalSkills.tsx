@@ -63,7 +63,7 @@ const skillMap: Record<string, Skill[]> = {
     ],
 };
 
-export default function TechnicalSkill() {
+export default function TechnicalSkills() {
     const [currentTab, setCurrentTab] = useState('Languages');
     const skills = skillMap[currentTab] || [];
 

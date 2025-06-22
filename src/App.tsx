@@ -1,10 +1,11 @@
 import Footer from '@components/Footer';
 import Header from '@components/Header';
-import TechnicalSkill from '@sections/TechnicalSkill';
+import TechnicalSkills from '@sections/TechnicalSkills';
 import Hero from '@sections/Hero';
 import Project from '@sections/Project';
 import Contact from '@sections/Contact';
 import StarField from '@components/StarField';
+import videoBackground from '@assets/blackhole.webm';
 
 function App() {
     return (
@@ -20,7 +21,7 @@ function App() {
             {/* Video nền - chỉ hiện ở dark mode */}
             <div className="hidden dark:block fixed inset-0 z-[-2] pointer-events-none animate-fade-in">
                 <video
-                    src="/src/assets/blackhole.webm"
+                    src={videoBackground}
                     className="absolute rotate-180 top-[-340px] left-0 h-[670px] w-full object-cover overflow-hidden opacity-70"
                     autoPlay
                     loop
@@ -35,7 +36,7 @@ function App() {
                 <main className="">
                     <Hero />
                     <Project />
-                    <TechnicalSkill />
+                    <TechnicalSkills />
                     <Contact />
                 </main>
                 <Footer />
