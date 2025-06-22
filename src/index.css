@@ -1,0 +1,41 @@
+@import 'tailwindcss';
+@custom-variant dark (&:where(.dark, .dark *));
+@theme {
+    --color-bgcolor-light: #ffffff;
+    --color-bgcolor-dark: #020618;
+    --color-card-light: #f7f9fc;
+    --color-card-dark: #11182d90;
+    --animate-fade-in: fade-in 0.5s ease-out;
+}
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Light mode */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #eee; /* nền thanh cuộn */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #bbb; /* nút cuộn */
+    border-radius: 9999px;
+}
+
+/* Dark mode */
+.dark ::-webkit-scrollbar-track {
+    background: #1f1f1f;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+    background: #777;
+    border-radius: 9999px;
+}
