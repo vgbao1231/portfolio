@@ -1,42 +1,59 @@
-import { motion, useInView } from 'framer-motion';
-import { type ReactNode, useRef } from 'react';
-import type {
-    TargetAndTransition,
-    VariantLabels,
-    Transition,
+import {
+    motion,
+    useInView,
+    type MotionProps,
+    type TargetAndTransition,
+    type VariantLabels,
+    type Transition,
 } from 'framer-motion';
+import {
+    type ElementType,
+    type ReactNode,
+    type ComponentPropsWithoutRef,
+    type Ref,
+    useRef,
+    useMemo,
+} from 'react';
 
-type FadeInWhenInViewProps = {
+type FadeInWhenInViewProps<T extends ElementType> = {
+    as?: T;
     children: ReactNode;
     initial?: TargetAndTransition | VariantLabels | boolean;
     animate?: TargetAndTransition | VariantLabels | boolean;
     delay?: number;
     transition?: Transition;
-};
+} & Omit<ComponentPropsWithoutRef<T>, 'ref'> &
+    MotionProps;
 
-export default function FadeInWhenInView({
+export default function FadeInWhenInView<T extends ElementType = 'div'>({
+    as,
     children,
     initial,
     animate,
     delay = 0,
     transition,
-}: FadeInWhenInViewProps) {
-    const ref = useRef<HTMLDivElement>(null);
+    ...props
+}: FadeInWhenInViewProps<T>) {
+    const ref = useRef<HTMLElement>(null);
     const isInView = useInView(ref, { once: true });
 
+    const Component = as || 'div';
+    const MotionComponent = useMemo(() => motion(Component), [Component]);
+
     return (
-        <motion.div
-            ref={ref}
+        <MotionComponent
+            ref={ref as Ref<HTMLElement>}
             initial={initial ?? { opacity: 0, y: 30 }}
             animate={animate ?? (isInView ? { opacity: 1, y: 0 } : false)}
             transition={{
                 duration: 0.5,
                 delay,
                 ease: 'easeOut',
-                ...transition, // 👈 merge tùy chỉnh nếu có
+                ...transition,
             }}
+            {...props}
         >
             {children}
-        </motion.div>
+        </MotionComponent>
     );
 }

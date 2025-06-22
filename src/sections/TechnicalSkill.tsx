@@ -61,73 +61,73 @@ const skillMap: Record<string, Skill[]> = {
         { name: 'Microservices' },
         { name: 'MVC' },
         { name: 'Responsive Design' },
-        {
-            name: 'Role-based Authorization',
-        },
+        { name: 'Role-based Authorization' },
     ],
 };
 
 export default function TechnicalSkill() {
     const [currentTab, setCurrentTab] = useState('Languages');
+    const skills = skillMap[currentTab] || [];
+
     return (
         <section id="tech" className="px-4 py-12 md:py-24">
             <div className="container px-4 md:px-6 mx-auto max-w-4xl text-center">
-                <FadeInWhenInView delay={0}>
-                    <h2 className="text-5xl font-bold mb-4 dark:text-shadow-lg">
-                        Technical Skills
-                    </h2>
+                <FadeInWhenInView
+                    as="h2"
+                    delay={0}
+                    className="text-4xl md:text-5xl font-bold mb-4 dark:text-shadow-lg"
+                >
+                    Technical Skills
                 </FadeInWhenInView>
 
-                <FadeInWhenInView delay={0.1}>
-                    <p className="max-w-xl mx-auto mb-12 text-xl text-gray-700 dark:text-gray-300 dark:text-shadow-lg">
-                        My expertise across various technologies and tools
-                    </p>
+                <FadeInWhenInView
+                    as="p"
+                    delay={0.1}
+                    className="max-w-xl mx-auto mb-12 text-xl text-gray-700 dark:text-gray-300 dark:text-shadow-lg"
+                >
+                    My expertise across various technologies and tools
                 </FadeInWhenInView>
 
-                <FadeInWhenInView delay={0.2}>
-                    <div className="flex gap-4 text-sm font-medium px-4 py-2 bg-card-light dark:bg-card-dark rounded-xl w-max mx-auto mb-12">
-                        {tabs.map((tab, idx) => (
-                            <button
-                                key={idx}
-                                className={`px-4 py-1 rounded-md transition-all ${
-                                    tab === currentTab
-                                        ? 'bg-black/80 text-white border border-gray-400'
-                                        : 'text-gray-400 hover:text-black dark:hover:text-white'
-                                }`}
-                                onClick={() => setCurrentTab(tab)}
-                            >
-                                {tab}
-                            </button>
-                        ))}
-                    </div>
+                <FadeInWhenInView
+                    delay={0.2}
+                    className="grid grid-cols-[repeat(auto-fit,_minmax(120px,_1fr))] justify-center gap-4 px-4 py-2 bg-card-light dark:bg-card-dark rounded-xl mx-auto mb-12"
+                >
+                    {tabs.map((tab) => (
+                        <button
+                            key={tab}
+                            onClick={() => setCurrentTab(tab)}
+                            className={`px-4 py-1 rounded-md transition-all ${
+                                tab === currentTab
+                                    ? 'bg-black/80 text-white border border-gray-400'
+                                    : 'text-gray-500 hover:text-black dark:hover:text-white'
+                            }`}
+                        >
+                            {tab}
+                        </button>
+                    ))}
                 </FadeInWhenInView>
 
-                <FadeInWhenInView delay={0.3}>
-                    <div
-                        key={currentTab}
-                        className="bg-card-light dark:bg-card-dark p-6 rounded-2xl w-full flex flex-wrap justify-center gap-4"
-                    >
-                        {skillMap[currentTab].map(({ name, icon }, idx) => (
-                            <FadeInWhenInView
-                                key={idx}
-                                initial={{ opacity: 0, scale: 0.8 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                delay={0.1 + idx * 0.1}
-                            >
-                                <div className="flex font-medium items-center gap-2 px-4 py-2 dark:bg-black rounded-xl dark:text-white text-sm shadow hover:bg-white/5 border-1 border-gray-300 dark:border-gray-700 hover:border-white/60 transition-all">
-                                    {icon && (
-                                        <img
-                                            src={icon}
-                                            alt={name}
-                                            className="w-5 h-5"
-                                        />
-                                    )}
-                                    {name}
-                                </div>
-                            </FadeInWhenInView>
-                        ))}
-                    </div>
-                </FadeInWhenInView>
+                <div className="bg-card-light dark:bg-card-dark p-6 rounded-2xl w-full flex flex-wrap justify-center gap-4">
+                    {skills.map(({ name, icon }, idx) => (
+                        <FadeInWhenInView
+                            key={name}
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            delay={0.1 + idx * 0.1}
+                        >
+                            <div className="flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-xl shadow border border-gray-300 dark:border-gray-700 dark:bg-black dark:text-white hover:bg-white/5 hover:border-white/60 transition-all">
+                                {icon && (
+                                    <img
+                                        src={icon}
+                                        alt={name}
+                                        className="w-5 h-5"
+                                    />
+                                )}
+                                {name}
+                            </div>
+                        </FadeInWhenInView>
+                    ))}
+                </div>
             </div>
         </section>
     );

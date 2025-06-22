@@ -1,6 +1,6 @@
-import { Moon, Sun } from 'lucide-react';
+import { Moon, Sun, Menu, X } from 'lucide-react';
 import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import FadeInWhenInView from './FadeInWhenInView';
 
 const sections = ['home', 'project', 'tech', 'contact'];
 
@@ -16,6 +16,8 @@ export default function Header() {
         }
         return 'light';
     });
+
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     useEffect(() => {
         const root = document.documentElement;
@@ -47,8 +49,8 @@ export default function Header() {
                 }
             },
             {
-                rootMargin: '0px 0px -60% 0px',
-                threshold: 0.3,
+                rootMargin: '-100px 0px -30% 0px',
+                threshold: 0.1,
             }
         );
 
@@ -61,21 +63,23 @@ export default function Header() {
     }, []);
 
     return (
-        <motion.header
+        <FadeInWhenInView
+            as="header"
             initial={{ opacity: 0, y: -80 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-5xl z-50 transition-all duration-300 rounded-xl py-2 px-4 bg-background/30 backdrop-blur-md dark:backdrop-brightness-[80%] border-[0.5px] border-gray-200 dark:border-white/20"
+            className="fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-5xl z-50 transition-all duration-300 rounded-xl py-2 px-4 bg-background/30 backdrop-blur-md dark:backdrop-brightness-[80%] border border-gray-200 dark:border-white/20"
         >
-            <nav className="container mx-auto px-4 flex justify-between items-center transition-all duration-300">
+            <nav className="flex items-center justify-between">
                 <h1 className="text-xl font-bold">Portfolio</h1>
-                <ul className="flex space-x-6">
+
+                {/* Menu desktop */}
+                <ul className="hidden sm:flex space-x-6">
                     {sections.map((id) => (
                         <li
                             key={id}
-                            className={`transition-all duration-300 hover:px-4 hover:py-0.25 hover:bg-gray-200/60 hover:rounded-md hover:text-black dark:hover:text-white dark:hover:bg-gray-800/40  hover:font-bold ${
+                            className={`transition-all duration-300 hover:px-4 hover:py-0.5 hover:bg-gray-200/60 hover:rounded-md hover:text-black dark:hover:text-white dark:hover:bg-gray-800/40 hover:font-bold ${
                                 activeSection === id
-                                    ? 'bg-gray-200/60 text-black dark:text-white dark:bg-gray-800/40 rounded-md font-bold px-4 py-0.25'
+                                    ? 'bg-gray-200/60 text-black dark:text-white dark:bg-gray-800/40 rounded-md font-bold px-4 py-0.5'
                                     : 'font-semibold'
                             }`}
                         >
@@ -88,13 +92,57 @@ export default function Header() {
                         </li>
                     ))}
                 </ul>
-                <button
-                    className="bg-white dark:bg-transparent text-black dark:text-white hover:bg-gray-100 dark:hover:bg-white/10 p-2 rounded transition-colors duration-300"
-                    onClick={toggleTheme}
-                >
-                    {theme === 'light' ? <Sun /> : <Moon />}
-                </button>
+
+                {/* Nút theme (desktop) */}
+                <div className="hidden sm:block">
+                    <button
+                        onClick={toggleTheme}
+                        className="bg-white dark:bg-transparent text-black dark:text-white hover:bg-gray-100 dark:hover:bg-white/10 p-2 rounded transition-colors duration-300"
+                    >
+                        {theme === 'light' ? <Sun /> : <Moon />}
+                    </button>
+                </div>
+
+                {/* Nút menu mobile */}
+                <div className="sm:hidden flex items-center gap-2">
+                    <button
+                        onClick={toggleTheme}
+                        className="text-black dark:text-white p-2 hover:bg-gray-200/50 dark:hover:bg-white/10 rounded"
+                    >
+                        {theme === 'light' ? <Sun /> : <Moon />}
+                    </button>
+                    <button
+                        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                        className="text-black dark:text-white p-2 hover:bg-gray-200/50 dark:hover:bg-white/10 rounded"
+                    >
+                        {isMobileMenuOpen ? <X /> : <Menu />}
+                    </button>
+                </div>
             </nav>
-        </motion.header>
+
+            {/* Mobile menu dropdown */}
+            {isMobileMenuOpen && (
+                <ul className="sm:hidden mt-2 space-y-2 px-2">
+                    {sections.map((id) => (
+                        <li
+                            key={id}
+                            className={`px-4 py-2 rounded-md transition-all duration-300 ${
+                                activeSection === id
+                                    ? 'bg-gray-200/60 text-black dark:text-white dark:bg-gray-800/40 font-bold'
+                                    : 'text-black dark:text-white font-medium hover:bg-gray-200/60 dark:hover:bg-gray-800/40'
+                            }`}
+                        >
+                            <a
+                                href={`#${id}`}
+                                onClick={() => setIsMobileMenuOpen(false)}
+                                className="block w-full capitalize"
+                            >
+                                {id}
+                            </a>
+                        </li>
+                    ))}
+                </ul>
+            )}
+        </FadeInWhenInView>
     );
 }

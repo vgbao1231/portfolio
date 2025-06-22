@@ -50,7 +50,7 @@ export default function Project() {
             className="py-20 px-8 text-center bg-gray-100/50 dark:bg-card-dark/30"
         >
             <FadeInWhenInView delay={0.1}>
-                <h2 className="text-5xl font-bold mb-1 dark:text-shadow-lg">
+                <h2 className="text-4xl md:text-5xl font-bold mb-1 dark:text-shadow-lg">
                     Featured Project
                 </h2>
             </FadeInWhenInView>
