@@ -8,6 +8,8 @@ import {
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import FadeInWhenInView from '@components/FadeInWhenInView';
+import avatar from '@assets/avatar.jpg';
+import CV from '@assets/CV1.pdf';
 
 export default function Hero() {
     return (
@@ -51,7 +53,7 @@ export default function Hero() {
                             <a
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                href="/src/assets/CV1.pdf"
+                                href={CV}
                                 className="border border-white px-4 py-2 rounded hover:bg-white hover:text-black flex items-center font-medium transition-all"
                             >
                                 <Download className="w-4 h-4 mr-2" />
@@ -110,7 +112,7 @@ export default function Hero() {
                 >
                     <div className="w-72 h-72 md:w-100 md:h-100 rounded-full overflow-hidden">
                         <img
-                            src="/src/assets/avatar.jpg"
+                            src={avatar}
                             alt="Avatar"
                             className="w-full h-full object-cover object-[center_25%]"
                         />

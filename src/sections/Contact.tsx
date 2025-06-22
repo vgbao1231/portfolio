@@ -95,7 +95,7 @@ export default function Contact() {
                                 />
                             </div>
                             <div className="flex items-center justify-center gap-4 bg-bgcolor-dark dark:bg-bgcolor-light w-full text-white dark:text-black font-semibold p-2 rounded">
-                                <button>Send Message</button>
+                                <button type="button">Send Message</button>
                                 <Send size={18} />
                             </div>
                         </form>

@@ -1,5 +1,6 @@
 import FadeInWhenInView from '@components/FadeInWhenInView';
 import { useState } from 'react';
+import { icons } from '@assets/icons';
 
 const tabs = [
     'Languages',
@@ -17,43 +18,40 @@ type Skill = {
 
 const skillMap: Record<string, Skill[]> = {
     Languages: [
-        { name: 'Java', icon: '/src/assets/icons/java.svg' },
-        { name: 'JavaScript', icon: '/src/assets/icons/javascript.svg' },
-        { name: 'TypeScript', icon: '/src/assets/icons/typescript.svg' },
-        { name: 'Python', icon: '/src/assets/icons/python.svg' },
-        { name: 'SQL', icon: '/src/assets/icons/sql.png' },
-        { name: 'HTML', icon: '/src/assets/icons/html5.svg' },
-        { name: 'CSS', icon: '/src/assets/icons/css.svg' },
+        { name: 'Java', icon: icons.java },
+        { name: 'JavaScript', icon: icons.javascript },
+        { name: 'TypeScript', icon: icons.typescript },
+        { name: 'Python', icon: icons.python },
+        { name: 'SQL', icon: icons.sql },
+        { name: 'HTML', icon: icons.html },
+        { name: 'CSS', icon: icons.css },
     ],
     Frontend: [
-        { name: 'React.js', icon: '/src/assets/icons/react.png' },
-        { name: 'Vite', icon: '/src/assets/icons/vite.svg' },
-        { name: 'Material UI', icon: '/src/assets/icons/mui.svg' },
-        { name: 'Tailwind', icon: '/src/assets/icons/tailwind.svg' },
-        { name: 'Redux Toolkit', icon: '/src/assets/icons/redux.svg' },
-        {
-            name: 'React Hook Form',
-            icon: '/src/assets/icons/reacthookform.svg',
-        },
-        { name: 'TanStack Query', icon: '/src/assets/icons/reactquery.svg' },
+        { name: 'React.js', icon: icons.react },
+        { name: 'Vite', icon: icons.vite },
+        { name: 'Material UI', icon: icons.mui },
+        { name: 'Tailwind', icon: icons.tailwind },
+        { name: 'Redux Toolkit', icon: icons.redux },
+        { name: 'React Hook Form', icon: icons.reacthookform },
+        { name: 'TanStack Query', icon: icons.reactquery },
     ],
     Backend: [
-        { name: 'Node.js', icon: '/src/assets/icons/nodejs.svg' },
-        { name: 'Express.js', icon: '/src/assets/icons/express.svg' },
-        { name: 'Java Spring Boot', icon: '/src/assets/icons/springboot.svg' },
+        { name: 'Node.js', icon: icons.nodejs },
+        { name: 'Express.js', icon: icons.express },
+        { name: 'Java Spring Boot', icon: icons.springboot },
     ],
     Database: [
-        { name: 'MongoDB', icon: '/src/assets/icons/mongodb.png' },
-        { name: 'MySQL', icon: '/src/assets/icons/mysql.svg' },
-        { name: 'SQL Server', icon: '/src/assets/icons/sql.png' },
+        { name: 'MongoDB', icon: icons.mongodb },
+        { name: 'MySQL', icon: icons.mysql },
+        { name: 'SQL Server', icon: icons.sqlserver },
     ],
     'Dev Tools': [
-        { name: 'Git', icon: '/src/assets/icons/git.svg' },
-        { name: 'GitHub', icon: '/src/assets/icons/github.svg' },
-        { name: 'Postman', icon: '/src/assets/icons/postman.svg' },
-        { name: 'Docker', icon: '/src/assets/icons/docker.svg' },
-        { name: 'VS Code', icon: '/src/assets/icons/vscode.svg' },
-        { name: 'Figma', icon: '/src/assets/icons/figma.svg' },
+        { name: 'Git', icon: icons.git },
+        { name: 'GitHub', icon: icons.github },
+        { name: 'Postman', icon: icons.postman },
+        { name: 'Docker', icon: icons.docker },
+        { name: 'VS Code', icon: icons.vscode },
+        { name: 'Figma', icon: icons.figma },
     ],
     Concepts: [
         { name: 'REST API' },

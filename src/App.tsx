@@ -30,7 +30,7 @@ function App() {
             </div>
 
             {/* Nội dung chính */}
-            <div className="relative z-10 md:px-4 sm:px-6 mx-auto">
+            <div className="relative z-10 md:px-0 sm:px-6 mx-auto">
                 <Header />
                 <main className="">
                     <Hero />

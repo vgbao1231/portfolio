@@ -1,9 +1,12 @@
 import FadeInWhenInView from '@components/FadeInWhenInView';
 import ProjectCard from '@components/ProjectCard';
+import petcare from '@assets/pet-care.png';
+import homeWorkout from '@assets/home-workout.png';
+import motelManagement from '@assets/motel-management.png';
 
 const projects = [
     {
-        img: '/src/assets/pet-care.png',
+        img: petcare,
         name: 'PetCare',
         desc: 'Responsive web app for pet clinics supports appointment booking, product ordering, pet management.',
         techStack: ['React.js', 'Vite', 'Material UI', 'TanStack Query', '+4'],
@@ -14,7 +17,7 @@ const projects = [
         githubUrl: 'https://github.com/vgbao1231/petcare',
     },
     {
-        img: '/src/assets/home-workout.png',
+        img: homeWorkout,
         name: 'Home Workout',
         desc: 'AI-powered workout app with personalized plans, activity tracking, body metrics, and admin management',
         techStack: ['React.js', 'Redux', 'React Hook Form'],
@@ -25,7 +28,7 @@ const projects = [
         githubUrl: 'https://github.com/vgbao1231/Home_Workout',
     },
     {
-        img: '/src/assets/motel-management.png',
+        img: motelManagement,
         name: 'Motel Management',
         desc: 'A system for managing rooms, tenants, utility billing, services, and user requests. Tenants can view bills, roommates, register services.',
         techStack: [
