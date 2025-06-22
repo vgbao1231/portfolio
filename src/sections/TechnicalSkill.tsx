@@ -105,7 +105,10 @@ export default function TechnicalSkill() {
                     ))}
                 </FadeInWhenInView>
 
-                <div className="bg-card-light dark:bg-card-dark p-6 rounded-2xl w-full flex flex-wrap justify-center gap-4">
+                <FadeInWhenInView
+                    delay={0.3}
+                    className="bg-card-light dark:bg-card-dark p-6 rounded-2xl w-full flex flex-wrap justify-center gap-4"
+                >
                     {skills.map(({ name, icon }, idx) => (
                         <FadeInWhenInView
                             key={name}
@@ -125,7 +128,7 @@ export default function TechnicalSkill() {
                             </div>
                         </FadeInWhenInView>
                     ))}
-                </div>
+                </FadeInWhenInView>
             </div>
         </section>
     );
