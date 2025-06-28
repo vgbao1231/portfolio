@@ -9,7 +9,6 @@ export default defineConfig({
         host: '0.0.0.0', // Cho phép truy cập từ các IP khác
         port: 8080, // Cổng của server
         strictPort: true, // Chỉ dùng đúng cổng 8080
-        https: false, // Nếu muốn dùng HTTPS thì cần cấu hình SSL
     },
     resolve: {
         alias: {
