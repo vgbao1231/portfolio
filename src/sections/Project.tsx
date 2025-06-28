@@ -1,12 +1,21 @@
 import FadeInWhenInView from '@components/FadeInWhenInView';
 import ProjectCard from '@components/ProjectCard';
 import petcare from '@assets/pet-care.png';
+import petcare1 from '@assets/pet-care-1.png';
+import petcare2 from '@assets/pet-care-2.png';
+import petcare3 from '@assets/pet-care-3.png';
 import homeWorkout from '@assets/home-workout.png';
+import homeWorkout1 from '@assets/home-workout-1.png';
+import homeWorkout2 from '@assets/home-workout-2.png';
+import homeWorkout3 from '@assets/home-workout-3.png';
 import motelManagement from '@assets/motel-management.png';
+import motelManagement1 from '@assets/motel-management-1.png';
+import motelManagement2 from '@assets/motel-management-2.png';
+import motelManagement3 from '@assets/motel-management-3.png';
 
 const projects = [
     {
-        img: petcare,
+        images: [petcare, petcare1, petcare2, petcare3],
         name: 'PetCare',
         desc: 'Responsive web app for pet clinics supports appointment booking, product ordering, pet management.',
         techStack: ['React.js', 'Vite', 'Material UI', 'TanStack Query', '+4'],
@@ -17,7 +26,7 @@ const projects = [
         githubUrl: 'https://github.com/vgbao1231/petcare',
     },
     {
-        img: homeWorkout,
+        images: [homeWorkout, homeWorkout1, homeWorkout2, homeWorkout3],
         name: 'Home Workout',
         desc: 'AI-powered workout app with personalized plans, activity tracking, body metrics, and admin management',
         techStack: ['React.js', 'Redux', 'React Hook Form'],
@@ -28,7 +37,12 @@ const projects = [
         githubUrl: 'https://github.com/vgbao1231/Home_Workout',
     },
     {
-        img: motelManagement,
+        images: [
+            motelManagement,
+            motelManagement1,
+            motelManagement2,
+            motelManagement3,
+        ],
         name: 'Motel Management',
         desc: 'A system for managing rooms, tenants, utility billing, services, and user requests. Tenants can view bills, roommates, register services.',
         techStack: [

@@ -1,8 +1,9 @@
 import { Github } from 'lucide-react';
 import type React from 'react';
+import AutoSlider from './AutoSlider';
 
 type ProjectCardProps = {
-    img: string;
+    images: string[];
     name: string;
     desc: string;
     techStack: string[];
@@ -11,7 +12,7 @@ type ProjectCardProps = {
 };
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
-    img,
+    images,
     name,
     desc,
     techStack,
@@ -21,11 +22,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
     return (
         <div className="gap-4 rounded-xl py-6 shadow-sm h-full flex flex-col overflow-hidden border-2 transition-all border-gray-200 dark:border-gray-700 hover:border-black/60 dark:hover:border-white/60 bg-gray-50 dark:bg-card-dark">
             {/* Project */}
-            <div className="aspect-[2/1] overflow-hidden">
-                <img
-                    src={img}
-                    alt="project-image"
-                    className="h-full w-full object-cover transition-transform hover:scale-105"
+            <div className="relative aspect-[2/1] overflow-hidden">
+                <AutoSlider
+                    images={images}
+                    className="absolute h-full w-full object-cover transition-transform"
                 />
             </div>
 

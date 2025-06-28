@@ -17,7 +17,7 @@ export default function Hero() {
             id="home"
             className="relative min-h-screen flex items-center justify-center overflow-hidden"
         >
-            <div className="relative z-10 container mx-auto px-6 pt-30 md:pt-20 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+            <div className="relative z-10 container mx-auto px-6 md:px-12 pt-30 md:pt-20 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
                 {/* Thông tin bên trái */}
                 <div>
                     <FadeInWhenInView delay={0}>

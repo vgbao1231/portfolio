@@ -54,6 +54,8 @@ export default [
       'react/jsx-no-target-blank': 'off',
       'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
       'react/prop-types': 'off',
+      '@typescript-eslint/no-unused-vars': 'off',
+
 
       // ✅ Hooks
       'react-hooks/exhaustive-deps': 'error',
